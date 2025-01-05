@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34221.43
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CopEngine", "CopEngine.vcxproj", "{E813614A-1C08-49E3-9044-6027F6092187}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E813614A-1C08-49E3-9044-6027F6092187}.Debug|x64.ActiveCfg = Debug|x64
+		{E813614A-1C08-49E3-9044-6027F6092187}.Debug|x64.Build.0 = Debug|x64
+		{E813614A-1C08-49E3-9044-6027F6092187}.Release|x64.ActiveCfg = Release|x64
+		{E813614A-1C08-49E3-9044-6027F6092187}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {62141989-8FBC-4C78-9A30-58529D8FC6EA}
+	EndGlobalSection
+EndGlobal

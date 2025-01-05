@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="cop.h" />
+    <ClInclude Include="cop_graphics_mgr.h" />
+    <ClInclude Include="cop_window.h" />
+    <ClInclude Include="cop_timer.h" />
+    <ClInclude Include="cop_app.h" />
+    <ClInclude Include="directx\d3d12.h">
+      <Filter>directx</Filter>
+    </ClInclude>
+    <ClInclude Include="directx\d3d12compatibility.h">
+      <Filter>directx</Filter>
+    </ClInclude>
+    <ClInclude Include="directx\d3d12sdklayers.h">
+      <Filter>directx</Filter>
+    </ClInclude>
+    <ClInclude Include="directx\d3d12shader.h">
+      <Filter>directx</Filter>
+    </ClInclude>
+    <ClInclude Include="directx\D3D12TokenizedProgramFormat.hpp">
+      <Filter>directx</Filter>
+    </ClInclude>
+    <ClInclude Include="directx\d3d12video.h">
+      <Filter>directx</Filter>
+    </ClInclude>
+    <ClInclude Include="directx\d3dcommon.h">
+      <Filter>directx</Filter>
+    </ClInclude>
+    <ClInclude Include="directx\d3dx12.h">
+      <Filter>directx</Filter>
+    </ClInclude>
+    <ClInclude Include="directx\d3dx12_barriers.h">
+      <Filter>directx</Filter>
+    </ClInclude>
+    <ClInclude Include="directx\d3dx12_check_feature_support.h">
+      <Filter>directx</Filter>
+    </ClInclude>
+    <ClInclude Include="directx\d3dx12_core.h">
+      <Filter>directx</Filter>
+    </ClInclude>
+    <ClInclude Include="directx\d3dx12_default.h">
+      <Filter>directx</Filter>
+    </ClInclude>
+    <ClInclude Include="directx\d3dx12_pipeline_state_stream.h">
+      <Filter>directx</Filter>
+    </ClInclude>
+    <ClInclude Include="directx\d3dx12_property_format_table.h">
+      <Filter>directx</Filter>
+    </ClInclude>
+    <ClInclude Include="directx\d3dx12_render_pass.h">
+      <Filter>directx</Filter>
+    </ClInclude>
+    <ClInclude Include="directx\d3dx12_resource_helpers.h">
+      <Filter>directx</Filter>
+    </ClInclude>
+    <ClInclude Include="directx\d3dx12_root_signature.h">
+      <Filter>directx</Filter>
+    </ClInclude>
+    <ClInclude Include="directx\d3dx12_state_object.h">
+      <Filter>directx</Filter>
+    </ClInclude>
+    <ClInclude Include="directx\DirectML.h">
+      <Filter>directx</Filter>
+    </ClInclude>
+    <ClInclude Include="directx\dxcore.h">
+      <Filter>directx</Filter>
+    </ClInclude>
+    <ClInclude Include="directx\dxcore_interface.h">
+      <Filter>directx</Filter>
+    </ClInclude>
+    <ClInclude Include="directx\dxgicommon.h">
+      <Filter>directx</Filter>
+    </ClInclude>
+    <ClInclude Include="directx\dxgiformat.h">
+      <Filter>directx</Filter>
+    </ClInclude>
+    <ClInclude Include="resources\resource.h">
+      <Filter>resources</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="cop_graphics_mgr.cpp" />
+    <ClCompile Include="cop_pch.cpp" />
+    <ClCompile Include="cop_window.cpp" />
+    <ClCompile Include="cop_app.cpp" />
+    <ClCompile Include="directx\d3dx12_property_format_table.cpp">
+      <Filter>directx</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="directx">
+      <UniqueIdentifier>{8e9ab79d-b406-471a-9ddd-1a7301344506}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="resources">
+      <UniqueIdentifier>{d897ad53-6af0-46e8-8a82-b9aaa1c9dcb6}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="resources\CopEngine.rc">
+      <Filter>resources</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

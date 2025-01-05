@@ -30,3 +30,5 @@
 *.exe
 *.out
 *.app
+/.vs
+/src/resources/CopEngine.aps
