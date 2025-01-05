@@ -30,5 +30,12 @@
 *.exe
 *.out
 *.app
-/.vs
-/src/resources/CopEngine.aps
+
+# Visual Studio Files and directories
+.vs
+*.aps
+*.vcxproj.user
+
+# Output Directories
+/bin
+/obj
