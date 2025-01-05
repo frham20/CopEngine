@@ -16,6 +16,8 @@
 #include <d3dcommon.h>
 #include <dxgi1_4.h>
 #include <wrl/client.h>
+#include <DirectXMath.h>
+using namespace DirectX;
 
 #include "cop_timer.h"
 #include "cop_window.h"

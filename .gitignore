@@ -36,6 +36,7 @@
 *.aps
 *.vcxproj.user
 
-# Output Directories
-/bin
-/obj
+# Special Directories
+bin/
+obj/
+packages/
