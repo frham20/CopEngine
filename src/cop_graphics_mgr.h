@@ -37,6 +37,8 @@ private:
 	UINT m_frameIndex;
 	UINT64 m_fenceValue;
 	Timer m_frameTimer;
+
+	Camera m_camera;
 };
 
 extern GraphicsMgr g_GraphicsMgr;

@@ -20,6 +20,7 @@
 using namespace DirectX;
 
 #include "cop_timer.h"
+#include "cop_camera.h"
 #include "cop_graphics_mgr.h"
 #include "cop_app.h"
 

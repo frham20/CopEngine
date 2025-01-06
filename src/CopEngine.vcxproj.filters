@@ -77,6 +77,7 @@
     <ClInclude Include="resources\resource.h">
       <Filter>resources</Filter>
     </ClInclude>
+    <ClInclude Include="cop_camera.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
@@ -86,6 +87,7 @@
     <ClCompile Include="directx\d3dx12_property_format_table.cpp">
       <Filter>directx</Filter>
     </ClCompile>
+    <ClCompile Include="cop_camera.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="directx">

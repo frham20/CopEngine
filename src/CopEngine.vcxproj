@@ -89,6 +89,7 @@
   <ItemGroup>
     <ClInclude Include="cop.h" />
     <ClInclude Include="cop_app.h" />
+    <ClInclude Include="cop_camera.h" />
     <ClInclude Include="cop_timer.h" />
     <ClInclude Include="cop_graphics_mgr.h" />
     <ClInclude Include="directx\d3d12.h" />
@@ -117,6 +118,7 @@
     <ClInclude Include="resources\resource.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="cop_camera.cpp" />
     <ClCompile Include="cop_app.cpp" />
     <ClCompile Include="directx\d3dx12_property_format_table.cpp" />
     <ClCompile Include="main.cpp" />

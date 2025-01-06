@@ -84,7 +84,7 @@ int App::Run()
 		{
 			const float fps = (float)frameCount / elapsedTime;
 			wchar_t windowTitle[256];
-			swprintf_s(windowTitle, 256, L"Copilot Test - %.2f FPS", fps);
+			swprintf_s(windowTitle, 256, L"CopEngine - %.2f FPS", fps);
 			SetWindowTextW(m_hWnd, windowTitle);
 			frameCount = 0;
 			elapsedTime = 0.0f;
