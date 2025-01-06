@@ -90,7 +90,6 @@
     <ClInclude Include="cop.h" />
     <ClInclude Include="cop_app.h" />
     <ClInclude Include="cop_timer.h" />
-    <ClInclude Include="cop_window.h" />
     <ClInclude Include="cop_graphics_mgr.h" />
     <ClInclude Include="directx\d3d12.h" />
     <ClInclude Include="directx\d3d12compatibility.h" />
@@ -125,7 +124,6 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="cop_window.cpp" />
     <ClCompile Include="cop_graphics_mgr.cpp" />
   </ItemGroup>
   <ItemGroup>

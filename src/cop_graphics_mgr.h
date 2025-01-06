@@ -8,6 +8,8 @@ public:
 	~GraphicsMgr() = default;
 
 	bool Initialize(HWND hwnd);
+	void Shutdown();
+
 	void Render();
 	float GetFrameTime();
 	void ResizeBuffers(int width, int height);
@@ -16,10 +18,12 @@ protected:
 	void BeginFrame();
 	void EndFrame();
 
+	void WaitForGPU();
+
 private:
 	GraphicsMgr(const GraphicsMgr&) = delete;
 	GraphicsMgr& operator=(const GraphicsMgr&) = delete;
-
+	
 	Microsoft::WRL::ComPtr<ID3D12Device> m_device;
 	Microsoft::WRL::ComPtr<ID3D12CommandQueue> m_commandQueue;
 	Microsoft::WRL::ComPtr<IDXGISwapChain3> m_swapChain;

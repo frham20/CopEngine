@@ -3,23 +3,64 @@
 
 namespace cop {
 
-bool App::Initialize()
+bool App::Initialize(HINSTANCE hInstance)
 {
-	m_hInstance = GetModuleHandle(nullptr);
+	constexpr wchar_t wndClassName[] = L"CopMainWindow";
+	constexpr wchar_t wndTitle[] = L"CopEngine";
 
-	m_window.Create(L"Copilot Test", 800, 600);
-	g_GraphicsMgr.Initialize(m_window.GetHwnd());
+	m_hInstance = hInstance;
 
-	m_window.Show(true);
+	WNDCLASSEXW wcex;
+	wcex.cbSize = sizeof(WNDCLASSEX);
+	wcex.style = CS_HREDRAW | CS_VREDRAW;
+	wcex.lpfnWndProc = MainWindowProc;
+	wcex.cbClsExtra = 0;
+	wcex.cbWndExtra = 0;
+	wcex.hInstance = m_hInstance;
+	wcex.hIcon = LoadIcon(m_hInstance, IDI_APPLICATION);
+	wcex.hCursor = LoadCursor(nullptr, IDC_ARROW);
+	wcex.hbrBackground = (HBRUSH)(COLOR_WINDOW + 1);
+	wcex.lpszMenuName = nullptr;
+	wcex.lpszClassName = wndClassName;
+	wcex.hIconSm = LoadIcon(hInstance, IDI_APPLICATION);
+
+	if (!RegisterClassExW(&wcex))
+		return false;
+
+	m_hWnd = CreateWindowW(
+		wndClassName,
+		wndTitle,
+		WS_OVERLAPPEDWINDOW,
+		CW_USEDEFAULT, 0,
+		1024, 768,
+		nullptr, nullptr,
+		m_hInstance,
+		this);
+
+	if (!m_hWnd)
+		return false;
+
+	g_GraphicsMgr.Initialize(m_hWnd);
+
+	ShowWindow(m_hWnd, SW_SHOW);
+	UpdateWindow(m_hWnd);
 
 	return true;
 }
 
+void App::Shutdown()
+{
+	g_GraphicsMgr.Shutdown();
+
+	if (m_hWnd)
+	{
+		DestroyWindow(m_hWnd);
+		m_hWnd = nullptr;
+	}
+}
+
 int App::Run()
 {
-	if (!Initialize())
-		return -1;
-
 	MSG msg;
 	while (true)
 	{
@@ -44,14 +85,44 @@ int App::Run()
 			const float fps = (float)frameCount / elapsedTime;
 			wchar_t windowTitle[256];
 			swprintf_s(windowTitle, 256, L"Copilot Test - %.2f FPS", fps);
-			m_window.SetTitle(windowTitle);
-
+			SetWindowTextW(m_hWnd, windowTitle);
 			frameCount = 0;
 			elapsedTime = 0.0f;
 		}
 	}
 
 	return 0;
+}
+
+LRESULT CALLBACK App::MainWindowProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
+{
+	switch (message)
+	{
+		case WM_PAINT:
+			{
+				PAINTSTRUCT ps;
+				HDC hdc = BeginPaint(hWnd, &ps);
+				EndPaint(hWnd, &ps);
+				break;
+			}
+		case WM_ERASEBKGND:
+			{
+				// Prevent the window from erasing the background
+				return 1;
+			}
+		case WM_SIZE:
+			{
+				g_GraphicsMgr.ResizeBuffers(LOWORD(lParam), HIWORD(lParam));
+				break;
+			}
+		case WM_DESTROY:
+			{
+				PostQuitMessage(0);
+				break;
+			}
+	}
+
+	return DefWindowProc(hWnd, message, wParam, lParam);
 }
 
 }

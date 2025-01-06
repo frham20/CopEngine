@@ -3,7 +3,6 @@
   <ItemGroup>
     <ClInclude Include="cop.h" />
     <ClInclude Include="cop_graphics_mgr.h" />
-    <ClInclude Include="cop_window.h" />
     <ClInclude Include="cop_timer.h" />
     <ClInclude Include="cop_app.h" />
     <ClInclude Include="directx\d3d12.h">
@@ -83,7 +82,6 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="cop_graphics_mgr.cpp" />
     <ClCompile Include="cop_pch.cpp" />
-    <ClCompile Include="cop_window.cpp" />
     <ClCompile Include="cop_app.cpp" />
     <ClCompile Include="directx\d3dx12_property_format_table.cpp">
       <Filter>directx</Filter>

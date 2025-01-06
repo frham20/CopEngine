@@ -124,6 +124,29 @@ bool GraphicsMgr::Initialize(HWND hwnd)
 	return true;
 }
 
+void GraphicsMgr::Shutdown()
+{
+	WaitForGPU();
+
+	//release resources
+	for (UINT i = 0; i < 2; i++)
+	{
+		m_renderTargets[i].Reset();
+	}
+	m_rtvHeap.Reset();
+	m_swapChain.Reset();
+	m_commandQueue.Reset();
+	m_commandList.Reset();
+	m_commandAllocator.Reset();
+	m_fence.Reset();
+
+	if (m_fenceEvent != nullptr)
+	{
+	 	CloseHandle(m_fenceEvent);
+		m_fenceEvent = nullptr;
+	}
+}
+
 void GraphicsMgr::Render()
 {
 	static Timer timer;
@@ -156,13 +179,19 @@ float GraphicsMgr::GetFrameTime()
 	return m_frameTimer.GetElapsedTime();
 }
 
-void GraphicsMgr::ResizeBuffers(int width, int height)
+void GraphicsMgr::WaitForGPU()
 {
 	// Wait for the GPU to finish all previous work
 	m_commandQueue->Signal(m_fence.Get(), m_fenceValue);
 	m_fence->SetEventOnCompletion(m_fenceValue, m_fenceEvent);
 	WaitForSingleObject(m_fenceEvent, INFINITE);
 	m_fenceValue++;
+}
+
+void GraphicsMgr::ResizeBuffers(int width, int height)
+{
+	// Wait for the GPU to finish all previous work
+	WaitForGPU();
 
 	// Release the previous resources we will be recreating
 	for (UINT i = 0; i < 2; i++)
